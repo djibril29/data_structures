@@ -1,0 +1,38 @@
+ALGORITHM produitscalaire
+    FUNCTION dot_product(v1: ARRAY_OF INTEGER[length]; v2: ARRAY_OF INTEGER[length], n) : INTEGER
+    VAR
+        i, ps : INTEGER;
+    BEGIN
+        ps := 0;
+        FOR i FROM 0 TO n STEP 1 DO
+            ps := ps + v1[i] * v2[i];
+        END_FOR
+        RETURN ps;
+    END
+
+VAR
+    T1: ARRAY_OF INTEGER[N];
+    T2: ARRAY_OF INTEGER[N];
+    prod_scalaire: INTEGER;
+    i: INTEGER;
+    n: INTEGER;
+
+BEGIN
+    // Permettre à l'utilisateur d'entrer les coordonnées des vecteurs
+    // ...
+
+    // Vérifier si les vecteurs sont orthogonaux
+    n := <nombre de couples de vecteurs donnés>;
+
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        // Appeler la fonction dot_product pour calculer le produit scalaire
+        prod_scalaire := dot_product(T1[i], T2[i], N);
+
+        // Vérifier si le produit scalaire est nul (vecteurs orthogonaux)
+        IF prod_scalaire = 0 THEN
+            write("Les vecteurs ", T1[i], " et ", T2[i], " sont orthogonaux.");
+        ELSE
+            write("Les vecteurs ", T1[i], " et ", T2[i], " ne sont pas orthogonaux.");
+        END_IF
+    END_FOR
+END

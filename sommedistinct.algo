@@ -1,0 +1,44 @@
+ALGORITHM SOMTAB
+VAR
+    tab1 : ARRAY_OF INTEGER[length];
+    tab2 : ARRAY_OF INTEGER[length];
+   
+    i,j,k,som: INTEGER
+BEGIN
+    // Demander à l'utilisateur de remplir les deux tableaux
+    FOR i FROM 0 TO tab1.length-1 STEP 1 DO
+        write("Remplissez le tableau tab1 : ")
+        read(tab1[i])
+    END_FOR
+    
+    FOR j FROM 0 TO tab2.length-1 STEP 1 DO
+        write("Remplissez le tableau tab2 : ")
+        read(tab2[j])
+    END_FOR
+    
+    // Créer un tableau pour stocker les éléments distincts
+    elements_distincts := []
+    
+    // Parcourir le premier tableau et ajouter les éléments distincts
+    FOR i FROM 0 TO tab1.length-1 STEP 1 DO
+        IF tab1[i] NOT IN elements_distincts THEN
+            elements_distincts.append(tab1[i])
+        END_IF
+    END_FOR
+    
+    // Parcourir le deuxième tableau et ajouter les éléments distincts
+    FOR j FROM 0 TO tab2.length-1 STEP 1 DO
+        IF tab2[j] NOT IN elements_distincts THEN
+            elements_distincts.append(tab2[j])
+        END_IF
+    END_FOR
+    
+    // Calculer la somme des éléments distincts
+    somme := 0
+    FOR k FROM 0 TO elements_distincts.length-1 STEP 1 DO
+        somme := somme + elements_distincts[k]
+    END_FOR
+    
+    // Afficher la somme des éléments distincts
+    write("La somme des éléments distincts est : ", somme)
+END
